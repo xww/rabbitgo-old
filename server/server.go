@@ -3,8 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/xww/rabbitgo/common"
 	"log"
 	"net"
+	"os"
 )
 
 func handleConnection(conn net.Conn) {
@@ -18,6 +20,12 @@ func handleConnection(conn net.Conn) {
 	conn.Close()
 }
 func main() {
+	fileName := "xww.log"
+	logFile, err := os.Create(fileName)
+	defer logFile.Close()
+	mylog := common.NewLog(logFile)
+	mylog.Debug("debug")
+
 	ln, err := net.Listen("tcp", "127.0.0.1:6010")
 	if err != nil {
 		panic(err)
