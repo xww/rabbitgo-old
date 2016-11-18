@@ -1,0 +1,14 @@
+{
+  "aa": "https://github.com/alecthomas/log4go/blob/master/examples/example.xml"
+  "file": {
+    "tag": "filelog",
+    "type": "file",
+    "enable": true,
+    "level": "debug",
+  },
+  "console": {
+  }
+}
+
+
+
