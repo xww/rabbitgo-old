@@ -4,11 +4,13 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	"github.com/xww/rabbitgo/conf"
-	"github.com/xww/rabbitgo/log2"
-	"log"
+	//"github.com/xww/rabbitgo/conf"
+
 	"net"
 	"time"
+
+	"github.com/xww/rabbitgo/log2"
+	"log"
 )
 
 var (
@@ -28,18 +30,19 @@ func handleConnection(conn net.Conn) {
 }
 
 func main() {
-	appConfig := conf.InitConfig()
-	fmt.Println(appConfig)
-	fmt.Println(int(appConfig["logRotateSize"].(int64)))
+	//appConfig := conf.InitConfig()
+	//fmt.Println(appConfig)
+	//fmt.Println(int(appConfig["logRotateSize"].(int64)))
 
-	log := log2.NewLogger(appConfig)
-	log.Finest("finest")
-	log.Fine("fine")
-	log.Debug("debug")
-	log.Info("The time is now: %s", time.Now().Format("15:04:05 MST 2006/01/02"))
-	log.Info("The time is now: %s", time.Now().Format("2006-01-02 15:04:05"))
-	log.Warn("warn")
-	log.Critical("critical")
+	//log := log2.NewLogger(appConfig)
+
+	log2.Log.Finest("finest")
+	log2.Log.Fine("fine")
+	log2.Log.Debug("debug")
+	log2.Log.Info("The time is now: %s", time.Now().Format("15:04:05 MST 2006/01/02"))
+	log2.Log.Info("The time is now: %s", time.Now().Format("2006-01-02 15:04:05"))
+	log2.Log.Warn("warn")
+	log2.Log.Critical("critical")
 
 	//var appConfig map[string]interface{}
 
@@ -50,8 +53,9 @@ func main() {
 	for {
 		conn, err := ln.Accept()
 		if err != nil {
-			log.Critical("get client connection error: ", err)
+			log2.Log.Critical("get client connection error: ", err)
 		}
+		log2.Log.Debug("client come!")
 		go handleConnection(conn)
 	}
 }

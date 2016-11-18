@@ -13,6 +13,5 @@ func InitConfig() map[string]interface{} {
 		fmt.Println(err.Error())
 
 	}
-
 	return config
 }
