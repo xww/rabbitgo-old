@@ -11,7 +11,7 @@ import (
 
 func main() {
 	//注意每条信息后面的,号
-	msg_test := &Msg{
+	msg_test := &demo.Msg{
 		MsgType: proto.Int32(1),
 		MsgInfo: proto.String("I am hahaya."),
 		MsgFrom: proto.String("127.0.0.1"),

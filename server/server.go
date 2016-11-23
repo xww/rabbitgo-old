@@ -7,7 +7,7 @@ import (
 	//"github.com/xww/rabbitgo/conf"
 
 	"net"
-	"time"
+	//"time"
 
 	"github.com/xww/rabbitgo/log2"
 	"log"
@@ -36,13 +36,13 @@ func main() {
 
 	//log := log2.NewLogger(appConfig)
 
-	log2.Log.Finest("finest")
+	/*log2.Log.Finest("finest")
 	log2.Log.Fine("fine")
 	log2.Log.Debug("debug")
 	log2.Log.Info("The time is now: %s", time.Now().Format("15:04:05 MST 2006/01/02"))
 	log2.Log.Info("The time is now: %s", time.Now().Format("2006-01-02 15:04:05"))
 	log2.Log.Warn("warn")
-	log2.Log.Critical("critical")
+	log2.Log.Critical("critical")*/
 
 	//var appConfig map[string]interface{}
 
