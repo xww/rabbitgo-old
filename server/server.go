@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bufio"
+	//"bufio"
 	"flag"
 	"fmt"
 	//"github.com/xww/rabbitgo/conf"
@@ -9,8 +9,8 @@ import (
 	"net"
 	//"time"
 
-	"github.com/xww/rabbitgo/log2"
-	"log"
+	//"github.com/xww/rabbitgo/log2"
+	//"log"
 )
 
 var (
@@ -19,12 +19,12 @@ var (
 )
 
 func handleConnection(conn net.Conn) {
-	data, err := bufio.NewReader(conn).ReadString('\n')
+	/*data, err := bufio.NewReader(conn).ReadString('\n')
 	conn.RemoteAddr().Network()
 	if err != nil {
 		log.Fatal("get client data error: ", err)
 	}
-	fmt.Printf("%#v\n", data)
+	fmt.Printf("%#v\n", data)*/
 	fmt.Fprintf(conn, "hello client\n")
 	conn.Close()
 }
@@ -53,9 +53,10 @@ func main() {
 	for {
 		conn, err := ln.Accept()
 		if err != nil {
-			log2.Log.Critical("get client connection error: ", err)
+			//log2.Log.Critical("get client connection error: ", err)
+			fmt.Println(err)
 		}
-		log2.Log.Debug("client come!")
+		//log2.Log.Debug("client come!")
 		go handleConnection(conn)
 	}
 }

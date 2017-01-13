@@ -1,14 +1,9 @@
-
-
-package main
+package cache
 
 import (
+	"testing"
 	"time"
 	"fmt"
-	
-)
-
-
 )
 
 var (
@@ -16,12 +11,12 @@ var (
 	v = "testvalue"
 )
 
-func main() {
+func TestCache(t *testing.T) {
 	table := NewCache("table1")
 	table.AddItem(k,5,v)
 	item, err:= table.GetItem(k)
 	if err != nil{
-		fmt.Println("add item error:", err)
+		t.Error("add item error:", err)
 	}
 	fmt.Println(item)
 	time.Sleep(50 * time.Second)
