@@ -5,11 +5,12 @@ package main
 import (
 	"time"
 	"fmt"
+	"github.com/xww/rabbitgo-old/cache"
 	
 )
 
 
-)
+
 
 var (
 	k = "testkey"
@@ -17,7 +18,7 @@ var (
 )
 
 func main() {
-	table := NewCache("table1")
+	table := cache.NewCache("table1")
 	table.AddItem(k,5,v)
 	item, err:= table.GetItem(k)
 	if err != nil{

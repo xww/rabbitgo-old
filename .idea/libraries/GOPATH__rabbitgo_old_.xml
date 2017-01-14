@@ -1,29 +1,17 @@
 <component name="libraryTable">
   <library name="GOPATH &lt;rabbitgo-old&gt;">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../../opms" />
-      <root url="file://$PROJECT_DIR$/../../../stathat.com" />
-      <root url="file://$PROJECT_DIR$/../../../launchpad.net" />
-      <root url="file://$PROJECT_DIR$/../../../aaa" />
-      <root url="file://$PROJECT_DIR$/../../../gopkg.in" />
-      <root url="file://$PROJECT_DIR$/../../../git.openstack.org" />
-      <root url="file://$PROJECT_DIR$/../../../google.golang.org" />
       <root url="file://$PROJECT_DIR$/../../../golang.org" />
+      <root url="file://$PROJECT_DIR$/../../../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../google.golang.org" />
       <root url="file://$PROJECT_DIR$/../.." />
-      <root url="file://$PROJECT_DIR$/../../../bbb" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="file://$PROJECT_DIR$/../../../opms" />
-      <root url="file://$PROJECT_DIR$/../../../stathat.com" />
-      <root url="file://$PROJECT_DIR$/../../../launchpad.net" />
-      <root url="file://$PROJECT_DIR$/../../../aaa" />
-      <root url="file://$PROJECT_DIR$/../../../gopkg.in" />
-      <root url="file://$PROJECT_DIR$/../../../git.openstack.org" />
-      <root url="file://$PROJECT_DIR$/../../../google.golang.org" />
       <root url="file://$PROJECT_DIR$/../../../golang.org" />
+      <root url="file://$PROJECT_DIR$/../../../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../google.golang.org" />
       <root url="file://$PROJECT_DIR$/../.." />
-      <root url="file://$PROJECT_DIR$/../../../bbb" />
     </SOURCES>
     <excluded>
       <root url="file://$PROJECT_DIR$" />

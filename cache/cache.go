@@ -19,7 +19,8 @@ func NewCache(table string) *Table {
 		t = &Table{
 			name:  table,
 			items: make(map[interface{}]*Item),
-			cleanupInterval: 30*time.Second,
+			cleanupInterval: 3*time.Second,
+			isLock: false,
 		}
 
 		mutex.Lock()

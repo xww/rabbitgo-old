@@ -31,6 +31,8 @@ type Table struct {
 	//addedItem func(item *Item)
 	// Callback method triggered before deleting an item from the cache.
 	//aboutToDeleteItem func(item *Item)
+
+	isLock bool
 }
 
 
@@ -61,7 +63,7 @@ func (table * Table) AddItem(key interface{}, lifespan time.Duration, value inte
 }
 
 func (table * Table) DeleteItem(key interface{}) error{
-	table.RLock()
+	table.Lock()
 	defer table.Unlock()
 	_, ok := table.items[key]
 	if !ok{
@@ -87,15 +89,16 @@ func (table * Table) Flush() {
 
 }
 
+
+
 func (table *Table) ExpireItemCheck() {
 	tc := time.Tick(table.cleanupInterval)
-
 	for {
 		<- tc
 		fmt.Println("begin clean up table ", table.name)
 		table.Lock()
-		//defer table.Unlock()
 		items := table.items
+		table.Unlock()
 		now := time.Now()
 		for key, item := range items {
 			item.RLock()
@@ -110,6 +113,7 @@ func (table *Table) ExpireItemCheck() {
 				table.DeleteItem(key)
 			}
 		}
+		//table.Unlock()
 	}
 }
 
