@@ -16,6 +16,8 @@ type Table struct {
 	// All cached items.
 	items map[interface{}]*Item
 
+	reveiveitems chan *Item
+
 	// Timer responsible for triggering cleanup.
 	//cleanupTimer *time.Timer
 	// Current timer duration.
@@ -56,9 +58,11 @@ func (table * Table) GetItem(key interface{}) (*Item, error){
 
 func (table * Table) AddItem(key interface{}, lifespan time.Duration, value interface{}) *Item{
 	item := NewItem(key, lifespan, value)
-	table.Lock()
-	defer table.Unlock()
-	table.items[key] = item
+	table.reveiveitems <- item
+	//table.Lock()
+	//defer table.Unlock()
+	//table.items[key] = item
+	fmt.Println("add item to receilveitems")
 	return item
 }
 
@@ -88,6 +92,22 @@ func (table * Table) Flush() {
 	defer table.Unlock()
 
 }
+
+func (table * Table) ProcessItem() {
+	for {
+		fmt.Println("begin process item")
+		item := <-table.reveiveitems
+		//table.Lock()
+		//defer table.Unlock()
+		table.items[item.key] = item
+		fmt.Println("after process item")
+
+	}
+}
+
+/*func (table * Table) AddItem(item *Item) {
+	append(table.reveiveitems, item)
+}*/
 
 
 

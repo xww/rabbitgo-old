@@ -21,6 +21,7 @@ func NewCache(table string) *Table {
 			items: make(map[interface{}]*Item),
 			cleanupInterval: 3*time.Second,
 			isLock: false,
+			reveiveitems:make(chan *Item),
 		}
 
 		mutex.Lock()
@@ -28,5 +29,6 @@ func NewCache(table string) *Table {
 		mutex.Unlock()
 	}
 	go t.ExpireItemCheck()
+	go t.ProcessItem()
 	return t
 }
